@@ -24,5 +24,26 @@ namespace SocialNetwork
         {
             InitializeComponent();
         }
+
+        private void regButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            Register_Form register_Form = new Register_Form();
+            register_Form.Show();
+        }
+
+        private void loginButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(loginTextBlock.Text == "coursework")
+            {
+                if(passwordBox.Password == "1111")
+                {
+                    MessageBox.Show("OK", "Success", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    MainForm mainForm = new MainForm();
+                    this.Hide();
+                    mainForm.Show();
+                }
+            }
+        }
     }
 }

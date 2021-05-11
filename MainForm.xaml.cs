@@ -113,6 +113,7 @@ namespace SocialNetwork
         private void openServeClientButton_Click(object sender, RoutedEventArgs e)
         {
             Process.Start(@"Chat\SocketChat.exe");
+            Process.Start(@"Chat\SocketChat.exe");
         }
     }
 }

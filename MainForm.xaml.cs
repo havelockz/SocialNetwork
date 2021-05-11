@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,12 +57,12 @@ namespace SocialNetwork
 
         private void settingsButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Settings already in developing", "ops", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
 
         private void informationButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Курсову роботу виконав: Радченко Микола 20 курс", "WARNING!", MessageBoxButton.OK, MessageBoxImage.Warning,MessageBoxResult.OK,MessageBoxOptions.ServiceNotification);
         }
 
         private void homeMenuButton_Click(object sender, RoutedEventArgs e)
@@ -79,13 +80,39 @@ namespace SocialNetwork
 
         private void ButtonOpenMessagingMenu_Click(object sender, RoutedEventArgs e)
         {
-            ButtonOpenMessagingMenu.Visibility = Visibility.Collapsed;
             ButtonCloseMessagingMenu.Visibility = Visibility.Visible;
+            ButtonOpenMessagingMenu.Visibility = Visibility.Collapsed;
         }
 
-        private void sendMessageButton_Click(object sender, RoutedEventArgs e)
+        private void messagesButton_Click(object sender, RoutedEventArgs e)
         {
+            GridMain.Visibility = Visibility.Hidden;
+            GridSettings.Visibility = Visibility.Hidden;
+            GridMessaging.Visibility = Visibility.Visible;
+        }
 
+        private void photosButton_Click(object sender, RoutedEventArgs e)
+        {
+            GridMain.Visibility = Visibility.Hidden;
+            GridSettings.Visibility = Visibility.Visible;
+            GridMessaging.Visibility = Visibility.Hidden;
+        }
+
+        private void ButtonCloseSettingsMenu_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonCloseSettingsMenu.Visibility = Visibility.Hidden;
+            ButtonOpenSettingsMenu.Visibility = Visibility.Visible;
+        }
+
+        private void ButtonOpenSettingsMenu_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonCloseSettingsMenu.Visibility = Visibility.Visible;
+            ButtonOpenSettingsMenu.Visibility = Visibility.Hidden;
+        }
+
+        private void openServeClientButton_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(@"Chat\SocketChat.exe");
         }
     }
 }

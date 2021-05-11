@@ -184,7 +184,7 @@
                     </ListViewItem.RenderTransform>
                     <StackPanel Orientation="Horizontal" Margin="10 0">
                         <materialDesign:PackIcon Kind="PhotoAlbum" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
-                        <Button Content="Photos" Width="150" Foreground="Black" BorderBrush="{x:Null}" Background="{x:Null}" Margin="10" VerticalAlignment="Center"/>
+                        <Button x:Name="photosButton" Click="photosButton_Click" Content="Photos" Width="150" Foreground="Black" BorderBrush="{x:Null}" Background="{x:Null}" Margin="10" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ListViewItem>
                 <ListViewItem x:Name="listViewItem2" Height="60" RenderTransformOrigin="0.5,0.5">
@@ -198,7 +198,7 @@
                     </ListViewItem.RenderTransform>
                     <StackPanel Orientation="Horizontal" Margin="10 0">
                         <materialDesign:PackIcon Kind="Message" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
-                        <Button Content="Messages" Width="150" Foreground="Black" BorderBrush="{x:Null}" Background="{x:Null}" Margin="10" VerticalAlignment="Center"/>
+                        <Button x:Name="messagesButton" Content="Messages" Click="messagesButton_Click" Width="150" Foreground="Black" BorderBrush="{x:Null}" Background="{x:Null}" Margin="10" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ListViewItem>
                 <ListViewItem x:Name="listViewItem3" Height="60" RenderTransformOrigin="0.5,0.5">
@@ -231,7 +231,7 @@
                 </ListViewItem>
             </ListView>
         </StackPanel>
-        <Grid x:Name="GridMain" Visibility="Hidden" Background="#FFFBFBFB" Width="1024" RenderTransformOrigin="0.5,0.5">
+        <Grid x:Name="GridMain" Visibility="Visible" Background="#FFFBFBFB" Width="1024" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -348,7 +348,7 @@
                 
             </Grid>
         </Grid>
-        <Grid x:Name="GridMessaging" Visibility="Visible" Background="#FFFBFBFB" Width="1024" RenderTransformOrigin="0.5,0.5">
+        <Grid x:Name="GridMessaging" Visibility="Hidden" Background="#FFFBFBFB" Width="1024" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -394,7 +394,9 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="50"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -409,10 +411,14 @@
 
 
                 <TextBlock Text="Messages" Foreground="#FF3580BF" FontSize="30" FontWeight="Bold" Margin="5" Grid.Row="1"/>
-                <Grid Grid.Row="2">
-
-                  
-
+                <Grid Grid.Row="3">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                        <Label Content="Click this button to open server and client chat application." FontSize="24"/>
+                        <Button x:Name="openServeClientButton" Click="openServeClientButton_Click" Background="Black" Height="50">
+                            <materialDesign:PackIcon Kind="Server"/>
+                        </Button>
+                    </StackPanel>
+                    
                 </Grid>
             </Grid>
         </Grid>
@@ -437,7 +443,7 @@
                         <ImageBrush ImageSource="/Assets/pexels-photo-247885.jpeg" Stretch="UniformToFill"/>
                     </Ellipse.Fill>
                 </Ellipse>
-                <TextBlock Text="John" Foreground="White" FontSize="28" FontFamily="Nirmala UI Semilight" Margin="10 100" VerticalAlignment="Top"/>
+                <TextBlock Text="User" Foreground="White" FontSize="28" FontFamily="Nirmala UI Semilight" Margin="10 100" VerticalAlignment="Top"/>
                 <StackPanel Margin="0 150">
                     <Grid Height="60" Margin="20 50 20 0">
                         <Grid.ColumnDefinitions>
@@ -448,14 +454,14 @@
                             <RowDefinition Height="30"/>
                             <RowDefinition Height="30"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Text="FOLLOWERS" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Margin="5,0,5,5"/>
-                        <TextBlock Text="1.5K" VerticalAlignment="Top" Foreground="#FFFBFBFB" Grid.Row="1" Margin="10 0"/>
+                        <TextBlock Text="Подписки" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Margin="5,0,5,5"/>
+                        <TextBlock Text="1578" VerticalAlignment="Top" Foreground="#FFFBFBFB" Grid.Row="1" Margin="10 0"/>
 
-                        <TextBlock Text="FOLLOWING" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Margin="5,0,5,5" Grid.Column="1"/>
-                        <TextBlock Text="2.3K" VerticalAlignment="Top" Foreground="#FFFBFBFB" Grid.Row="1" Margin="10 0" Grid.Column="1"/>
+                        <TextBlock Text="Подписчики" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Margin="5,0,5,5" Grid.Column="1"/>
+                        <TextBlock Text="1578" VerticalAlignment="Top" Foreground="#FFFBFBFB" Grid.Row="1" Margin="10 0" Grid.Column="1"/>
                     </Grid>
 
-                    <TextBlock TextWrapping="Wrap" Margin="10" Foreground="#FFFBFBFB" FontSize="14">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat ligula et ornare rutrum. Suspendisse vel nibh massa. Sed maximus porta augue eget viverra. Sed ullamcorper interdum ligula. Aenean vitae.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" Margin="10" Foreground="#FFFBFBFB" FontSize="14">Something about me.</TextBlock>
                 </StackPanel>
             </Grid>
             <Grid>
@@ -472,10 +478,10 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="ButtonCloseSettingsMenu" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Click="ButtonCloseMenu_Click" Visibility="Collapsed">
+                <Button x:Name="ButtonCloseSettingsMenu" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Click="ButtonCloseSettingsMenu_Click" Visibility="Collapsed">
                     <materialDesign:PackIcon Kind="Menu" Foreground="#FF3580BF"/>
                 </Button>
-                <Button x:Name="ButtonOpenSettingsMenu" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Click="ButtonOpenMenu_Click">
+                <Button x:Name="ButtonOpenSettingsMenu" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Click="ButtonOpenSettingsMenu_Click">
                     <materialDesign:PackIcon Kind="Menu" Foreground="#FF3580BF"/>
                 </Button>
 

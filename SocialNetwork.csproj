@@ -147,6 +147,9 @@
     <Resource Include="Assets\pexels-photo-701449.jpeg" />
     <Resource Include="Assets\pexels-photo-701762.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Chat\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:SocialNetwork"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         Title="MainForm" Height="600" Width="1024" WindowStyle="None" WindowStartupLocation="CenterScreen">
-    <WindowChrome.WindowChrome>
-        <WindowChrome CaptionHeight="0"/>
-    </WindowChrome.WindowChrome>
+
+
     <Window.Resources>
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="GridMain">
@@ -348,7 +348,7 @@
                 
             </Grid>
         </Grid>
-        <Grid x:Name="GridMessaging" Visibility="Hidden" Background="#FFFBFBFB" Width="1024" RenderTransformOrigin="0.5,0.5">
+        <Grid x:Name="GridMessaging" Visibility="Visible" Background="#FFFBFBFB" Width="1024" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -362,9 +362,9 @@
                 <ColumnDefinition Width="250"/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="1" Background="#FF3580BF">
+            <Grid Grid.Column="1" Background="DarkBlue">
                 <Image Height="150" VerticalAlignment="Top" Source="Assets/back.jpg" Stretch="UniformToFill"/>
-                <Ellipse Height="100" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="20 100" Stroke="White">
+                <Ellipse Height="100" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="20 100" Stroke="Green">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="/Assets/pexels-photo-247885.jpeg" Stretch="UniformToFill"/>
                     </Ellipse.Fill>
@@ -395,12 +395,8 @@
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
@@ -412,47 +408,11 @@
                 </Button>
 
 
-                <TextBlock Text="PHOTOS" Foreground="#FF3580BF" FontSize="30" FontWeight="Bold" Margin="5" Grid.Row="1"/>
+                <TextBlock Text="Messages" Foreground="#FF3580BF" FontSize="30" FontWeight="Bold" Margin="5" Grid.Row="1"/>
+                <Grid Grid.Row="2">
 
-                <Grid Margin="5" Grid.Row="2" Grid.Column="0">
-                    <Grid.Effect>
-                        <DropShadowEffect BlurRadius="20" Color="#FFEEEEEE" ShadowDepth="1"/>
-                    </Grid.Effect>
-                    <Image Source="/Assets/pexels-photo-374592.jpeg" Stretch="UniformToFill"/>
-                    <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                        <materialDesign:PackIcon Kind="Heart" Foreground="#FFFBFBFB"/>
-                        <TextBlock Text="25" Foreground="#FFFBFBFB"/>
-                    </StackPanel>
-                </Grid>
-                <Grid Margin="5" Grid.Row="2" Grid.Column="1">
-                    <Grid.Effect>
-                        <DropShadowEffect BlurRadius="20" Color="#FFEEEEEE" ShadowDepth="1"/>
-                    </Grid.Effect>
-                    <Image Source="/Assets/pexels-photo-701026.jpeg" Stretch="UniformToFill"/>
-                    <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                        <materialDesign:PackIcon Kind="Heart" Foreground="#FFFBFBFB"/>
-                        <TextBlock Text="50" Foreground="#FFFBFBFB"/>
-                    </StackPanel>
-                </Grid>
-                <Grid Margin="5" Grid.Row="2" Grid.Column="2">
-                    <Grid.Effect>
-                        <DropShadowEffect BlurRadius="20" Color="#FFEEEEEE" ShadowDepth="1"/>
-                    </Grid.Effect>
-                    <Image Source="/Assets/pexels-photo-701762.jpeg" Stretch="UniformToFill"/>
-                    <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                        <materialDesign:PackIcon Kind="Heart" Foreground="#FFFBFBFB"/>
-                        <TextBlock Text="18" Foreground="#FFFBFBFB"/>
-                    </StackPanel>
-                </Grid>
-                <Grid Margin="5" Grid.Row="3" Grid.Column="0">
-                    <Grid.Effect>
-                        <DropShadowEffect BlurRadius="20" Color="#FFEEEEEE" ShadowDepth="1"/>
-                    </Grid.Effect>
-                    <Image Source="/Assets/pexels-photo-701337.jpeg" Stretch="UniformToFill"/>
-                    <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                        <materialDesign:PackIcon Kind="Heart" Foreground="#FFFBFBFB"/>
-                        <TextBlock Text="32" Foreground="#FFFBFBFB"/>
-                    </StackPanel>
+                  
+
                 </Grid>
             </Grid>
         </Grid>

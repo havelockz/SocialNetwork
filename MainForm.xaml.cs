@@ -82,5 +82,10 @@ namespace SocialNetwork
             ButtonOpenMessagingMenu.Visibility = Visibility.Collapsed;
             ButtonCloseMessagingMenu.Visibility = Visibility.Visible;
         }
+
+        private void sendMessageButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
